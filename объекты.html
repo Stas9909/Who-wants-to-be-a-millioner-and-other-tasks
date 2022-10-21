@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var obj1 = { a: 3, b: 2 };
+        var obj2 = { a: 3, b: 2 };
+        var showRes = Math(obj1, obj2, '*');
+        console.log(showRes)
+        // console.log('Результат вычислений первых свойств Ваших объектов = ' + showRes.resultA + ' Результат вычислений вторых свойств Ваших объектов = ' + showRes.resultB);
+
+        function Math(a, b, oper) {
+            if (a instanceof Object && b instanceof Object) {
+                // временный контейнер для результата
+                 tempResObject = {};
+
+                switch (oper) {
+                    case '+': tempResObject.resultA = a['a'] + b['a'];
+                        tempResObject.resultB = a['b'] + b['b']; break;
+                    case '-': tempResObject.resultA = a['a'] - b['a'];
+                        tempResObject.resultB = a['b'] - b['b']; break;
+                    case '*': tempResObject.resultA = a['a'] * b['a'];
+                        tempResObject.resultB = a['b'] * b['b']; break;
+                    case '/': if (b['a'] == 0 || b['b'] == 0) {
+                        return alert('Делить на ноль нельзя');
+                    } else {
+                        tempResObject.resultA = a['a'] / b['a'];
+                        tempResObject.resultB = a['b'] / b['b'];
+                    }; break;
+                    default: alert('Вы ввели не вернный арифметичский знак!'); break;
+                }
+               
+            }
+             return tempResObject;
+        }
+
+
+
+    </script>
+</body>
+</html>

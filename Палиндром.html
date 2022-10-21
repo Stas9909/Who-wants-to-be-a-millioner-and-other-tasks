@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Палиндром</title>
+</head>
+<body>
+    <script>
+        let input=prompt(`Введите слово Палиндрм`, '');
+
+        function palindrome(){
+            let arr=[];
+            // let arr=input.split("");
+            arr.push(input);
+            return arr;
+        }
+       
+        function palindrome2(){
+            let arr4=[]
+            let arr2=input.split("");
+            arr2.reverse();
+            arr3=arr2.join("");
+            arr4.push(arr3);
+            return arr4;
+        }
+
+        let output=palindrome();
+        console.log(output);
+
+        let output2=palindrome2();
+        console.log(output2);
+
+        
+
+        for (let i=0; i<output.length; i++){
+            for (let j=0; j<output2.length; j++){
+                if(output[i]===output2[j]){
+
+                    alert("Введенное слово палиндром")
+                    break;
+                }
+                else{
+                    alert("Введенное слово не палиндром")
+                    break;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+let input=prompt(`Введите слово Палиндрм`, '');
+
+function palindrome(){
+    let arr=[];
+    // let arr=input.split("");
+    arr.push(input);
+    return arr;
+}
+
+function palindrome2(){
+    let arr2=input.split("");
+    arr2.reverse();
+    // arr2.join("");
+    return arr2;
+}
+
+let output=palindrome();
+console.log(output);
+
+let output2=palindrome2();
+console.log(output2);
+
+
+
+for (let i=0; i<output.length; i++){
+    for (let j=0; j<output2.length; j++){
+        if(output[i]===output2[j]){
+            alert("Введенное слово палиндром")
+            break;
+        }
+        else{
+            alert("Введенное слово не палиндром")
+            break;
+        }
+    }
+}

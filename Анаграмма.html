@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анаграмма</title>
+</head>
+<body>
+    <script>
+        
+let input =prompt(`Введите первое слово Анаграмму`, '');
+let input2=prompt(`Введите второе слово Анаграмму`, '');
+
+function anagramma(){
+    newArr=[];
+    let arr=input.split("");
+    arr.sort();
+    arrTemp=arr.join('');
+    newArr.push(arrTemp);
+    return newArr;
+}
+function anagramma2(){
+    newArr2=[]
+    let arr2=input2.split("");
+    arr2.sort();
+    arrTemp2=arr2.join('');
+    newArr2.push(arrTemp2)
+    return newArr2;
+}
+
+let output=anagramma();
+console.log(output);
+let output2=anagramma2();
+console.log(output2);
+
+for (let i=0; i<output.length; i++){
+    for (let j=i; j<output2.length; j++){
+        
+        if(output[i]===output2[j]){
+
+            alert("Введенное слово является Анаграммой")
+            break;
+        }
+        else{
+            alert("Введенное слово не является Анаграммой")
+            break;
+        }
+    }
+}
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практика script</title>
+</head>
+
+<body>
+    <script>
+
+        let value = 20;
+        let sign = "+";
+        let value2 = 10;
+
+        let arr = [2, 0, 6, 11, 3];
+        let sign2 = prompt("Введите математический знак");
+        let arr2 = [5, 7, 2, 15, 9, 60, 8];
+
+        let obj = {
+            a: 30,
+            b: 20
+        }
+
+        let obj2 = {
+            a: 30,
+            b: 45
+        }
+
+
+        function arrayCheck(a, b, sign) {
+            if (isNaN(a) == false && isNaN(b) == false) {
+
+                function sum(a, b) {
+                    return a + b;
+                }
+                function sub(a, b) {
+                    return a - b;
+                }
+                function mul(a, b) {
+                    return a * b;
+                }
+                function div(a, b) {
+                    return a / b;
+                }
+                switch (sign) {
+                    case "+":
+                        result = sum(value, value2);
+                        alert(`${value}+${value2}=${result}`)
+                        console.log(result);
+                        break;
+                    case "-":
+                        result = sub(value, value2);
+                        alert(`${value}-${value2}=${result}`)
+                        break
+                    case "*":
+                        result = mul(value, value2);
+                        alert(`${value}*${value2}=${result}`)
+                        break;
+                    case "/":
+                        if (value2 == 0) {
+                            alert("error");
+                            break;
+                        }
+                        else{
+                        result = div(value, value2);
+                        alert(`${value}/${value2}=${result}`)
+                        break;
+                        }
+                    default:
+                        alert("Введен неправильный арифметический оператор")
+                        console.log("Введен неправильный арифметический оператор:")
+                }
+            }
+            else if (a instanceof Array && b instanceof Array) {
+                sign=sign2;
+                var resArr = [];
+                if (b.length >= a.length) {
+                    length = a.length;
+                }
+                else {
+                    length = a.length;
+                }
+                for (let i = 0; i < length; i++) {
+                    var arr = a[i];
+                    var arr2 = b[i];
+                    // resArr.push(a+b);
+
+                    switch (sign) {
+                        case "+":
+                            resArr.push(arr + arr2);//Можно через push занести в массив 
+                            break;
+                        case "-":
+                            resArr[i] = arr - arr2;//можно добавить индекс к переменной нового массива
+                         
+                            break;
+                        case "*":
+                            resArr[i] = arr * arr2;
+                          
+                            break;
+                        case "/":
+                            if (arr2 == 0) {
+                                alert("error");
+                                break;
+                            }
+                            else{
+                            resArr[i] = arr / arr2;
+                            break;
+                            }
+                        default:
+                            alert("Введен неправильный арифметический оператор")
+                            console.log("Введен неправильный арифметический оператор:")
+                    }
+                }
+                return resArr;
+            }
+            else if (a instanceof Object && b instanceof Object) {
+                var totalObjResult = {};
+                switch(sign){
+                    case"+":
+                        totalObjResult.A=a['a']+b['a'];
+                        totalObjResult.B=a['b']+b['b'];
+                        break;
+                    case"-":
+                        totalObjResult.A=a['a']-b['a'];
+                        totalObjResult.B=a['b']-b['b'];
+                        break;
+                    case"*":
+                        totalObjResult.A=a['a']*b['a'];
+                        totalObjResult.B=a['b']*b['b'];
+                        break;
+                    case"/":
+                        if(b['a'] == 0 || b['b'] == 0){
+                            alert("Error");
+                            break;
+                        }
+                        else{
+                        totalObjResult.A=a['a']/b['a'];
+                        totalObjResult.B=a['b']/b['b'];
+                        break;
+                        }
+                    default:
+                        alert('Вы ввели не вернный арифметичский знак!');
+                        break;
+                }
+            }
+            return totalObjResult;
+        }
+
+        let totalesult = arrayCheck(value, value2, sign);
+
+        let totalArrayResult = arrayCheck(arr, arr2, sign2);
+        console.log(totalArrayResult);
+
+        let totalObjectResult = arrayCheck(obj, obj2, sign);
+        console.log(totalObjectResult);
+
+    </script>
+</body>
+
+</html>
